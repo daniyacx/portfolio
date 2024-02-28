@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/morestyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik&display=swap">
+    <title>MORE</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Stock Chart</h1>
+    <canvas id="stockChart" width="800" height="400"></canvas>
+
+    <h2>Search Photos</h2>
+    <form id="searchForm">
+        <input type="text" id="searchQuery" placeholder="Enter keywords...">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="searchResults"></div>
+
+    <h2>Random Anime Quote</h2>
+    <div id="animeQuote"></div>
+
+    <script>
+        async function renderStockChart() {
+            try {
+                const response = await fetch('/stocks/NKE'); 
+                const stockData = await response.json();
+
+                const labels = stockData.results.map(result => result.t);
+                const prices = stockData.results.map(result => result.c);
+
+                const ctx = document.getElementById('stockChart').getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Stock Price',
+                            data: prices,
+                            borderColor: '#070F2B',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching stock data:', error);
+            }
+        }
+
+        // Call renderStockChart function when the page is loaded
+        window.onload = renderStockChart;
+
+
+        document.getElementById('searchForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+
+            const query = document.getElementById('searchQuery').value.trim();
+            if (!query) {
+                alert('Please enter keywords for the search.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/search?keywords=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                const searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = ''; 
+
+                data.photos.forEach(photo => {
+                    const img = document.createElement('img');
+                    img.src = photo.urls.small;
+                    img.alt = photo.alt_description || 'Photo';
+                    searchResults.appendChild(img);
+                });
+            } catch (error) {
+                console.error('Error searching photos:', error);
+                alert('Error searching photos. Please try again later.');
+            }
+        });
+        fetch('/anime-quote?title=naruto')
+            .then(response => response.json())
+            .then(quote => {
+                const animeQuote = document.getElementById('animeQuote');
+                animeQuote.innerHTML = `<p>Anime: ${quote.anime}</p><p>Character: ${quote.character}</p><p>Quote: ${quote.quote}</p>`;
+            })
+            .catch(error => console.error('Error fetching anime quote:', error));
+
+    </script>
+</body>
+</html>

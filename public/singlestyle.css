@@ -1,0 +1,76 @@
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: rgb(255, 247, 241);
+    color: #070F2B;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.admin-section {
+    background-color: #BED1CF;
+    border-radius: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.admin-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control input,
+.form-control textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #070F2B;
+}
+
+.form-control button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #070F2B;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-control button[type="submit"] {
+    width: 100%;
+}
+
+.form-control button[type="submit"]:hover {
+    background-color: #535C91;
+}
+
+.form-control button[type="button"] {
+    width: 100%;
+    background-color: #E74C3C; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 10px; 
+}
+
+.form-control button[type="button"]:hover {
+    background-color: #C0392B; 
+}

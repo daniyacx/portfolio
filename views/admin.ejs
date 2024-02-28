@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/adminstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, Admin!</h1>
+    </header>
+    <main>
+        <section class="add-item">
+            <h2>Add New Item</h2>
+            
+            <form action="/admin" method="post">
+                <label for="itemImage1">Image link:</label>
+                <input type="text" id="itemImage1" name="itemImage1" required>
+                <label for="itemImage2">Image link 2:</label>
+                <input type="text" id="itemImage2" name="itemImage2" required>
+                <label for="itemImage3">Image link 3:</label>
+                <input type="text" id="itemImage3" name="itemImage3" required>
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                <label for="itemName2">Item Name on russian:</label>
+                <input type="text" id="itemName2" name="itemName2" required>
+                <label for="itemDescription">Item Description:</label>
+                <textarea id="itemDescription" name="itemDescription" required></textarea>
+                <label for="itemDescription2">Item Description on russian:</label>
+                <textarea id="itemDescription2" name="itemDescription2" required></textarea>
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+        <section class="display-item">
+            <% if(typeof portfolios != 'undefined'){ %>
+                <% portfolios.forEach(portfolio => { %>
+                <a href="/admin/<%= portfolio._id%>">
+                <div>
+                    <div class="image-gallery" style="display: inline-block;">
+                        <img src="<%= portfolio.itemImage1 %>" alt="Image 1" class="gallery-image" onclick="changeImage(this)">
+                        <img src="<%= portfolio.itemImage2 %>" alt="Image 2" class="gallery-image" onclick="changeImage(this)">
+                        <img src="<%= portfolio.itemImage3 %>" alt="Image 3" class="gallery-image" onclick="changeImage(this)">
+                    </div>
+                    <h2><%= portfolio.itemName %></h2> 
+                    <p><%= portfolio.itemDescription %></p> 
+                </div>
+                </a>
+                <% }) %>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>

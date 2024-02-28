@@ -1,0 +1,90 @@
+body {
+    background-image: url('https://img.freepik.com/free-photo/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product_1258-72633.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1708387200&semt=ais');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #070F2B;
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+canvas {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid #070F2B;
+    width: 800px;
+    height: 400px;
+}
+
+#searchForm {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+#searchQuery {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #070F2B;
+    text-align: center;
+    width: 200px;
+    font-family: "Rubik", sans-serif;
+}
+
+#searchButton {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #070F2B;
+    width: 100px;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+}
+
+#searchButton:hover {
+    background-color: #070F2B;
+    color: #FFFFFF;
+}
+
+#searchResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin-top: 20px;
+}
+
+#searchResults img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchResults img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#animeQuote {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media screen and (max-height: 400px) {
+    body {
+        overflow-y: scroll;
+    }
+}

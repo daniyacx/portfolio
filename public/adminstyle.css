@@ -1,0 +1,118 @@
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: rgb(255, 247, 241);
+    color: #070F2B;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #E78895;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.add-item {
+    background-color: #BED1CF;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 600px;
+    font-family: "Rubik", sans-serif;
+}
+
+.add-item h2 {
+    color: #070F2B;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+}
+
+.add-item form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item label {
+    margin-bottom: 5px;
+}
+
+.add-item input,
+.add-item textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #070F2B;
+    font-family: "Rubik", sans-serif;
+}
+
+.add-item button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #070F2B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Rubik", sans-serif;
+}
+
+.add-item button:hover {
+    background-color: #535C91;
+}
+
+.display-item {
+    width: 100%;
+}
+
+.display-item div {
+    background-color: #BED1CF;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: flex-start; 
+    margin-bottom: 10px;
+    overflow-x: auto; 
+    flex-wrap: nowrap; 
+}
+
+.image-gallery img {
+    width: auto;
+    height: 120px; 
+    border-radius: 10px; 
+    margin-right: 10px;
+    flex-shrink: 0; 
+}
+
+.image-gallery img:last-child {
+    margin-right: 0;
+}
+
+.display-item h2 {
+    color: #070F2B;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Rubik", sans-serif;
+}
+
+.display-item p {
+    color: #070F2B;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Rubik", sans-serif;
+}

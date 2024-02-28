@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update and Delete</title>
+    <link rel="stylesheet" href="/singlestyle.css">
+</head>
+<body>
+    <main class="container">
+        <section class="admin-section">
+            <div class="portfolio-item">
+                    <h1 style="text-align: center;">Edit Portfolio</h1>
+                    <form action="/admin/<%= portfolio._id %>?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="form-control">
+                            <label for="itemImage1">Image link:</label>
+                            <input type="text" id="itemImage1" name="itemImage1" placeholder="Image link" value="<%= portfolio.itemImage1 %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemImage2">Image link:</label>
+                            <input type="text" id="itemImage2" name="itemImage2" placeholder="Image link" value="<%= portfolio.itemImage2 %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemImage3">Image link:</label>
+                            <input type="text" id="itemImage3" name="itemImage3" placeholder="Image link" value="<%= portfolio.itemImage3 %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemName">Name(English):</label>
+                            <input type="text" id="itemName" name="itemName" placeholder="Name on english" value="<%= portfolio.itemName %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemName2">name(Russian):</label>
+                            <input type="text" id="itemName2" name="itemName2" placeholder="Name on russian" value="<%= portfolio.itemName2 %>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemDescription">Description(English):</label>
+                            <textarea type="text" id="itemDescription" name="itemDescription" placeholder="Description on english" required><%= portfolio.itemDescription %></textarea>
+                        </div>
+                        <div class="form-control">
+                            <label for="itemDescription2">Description(Russian):</label>
+                            <textarea type="text" id="itemDescription2" name="itemDescription2" placeholder="Description on russian" required><%= portfolio.itemDescription2 %></textarea>
+                        </div>
+                        <div class="form-control">
+                            <button type="submit">Update</button>
+                        </div>
+                    </form>
+                    <form action="/admin/<%= portfolio._id %>?_method=DELETE" method="POST">
+                        <div class="form-control">
+                            <button type="submit">Delete</button>
+                        </div>
+                    </form>
+                    
+
+            </div>
+            <p>No portfolio items found.</p>
+        </section>
+    </main>
+</body>
+</html>
